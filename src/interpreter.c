@@ -33,7 +33,7 @@ JL_DLLEXPORT jl_value_t *jl_interpret_toplevel_expr_in(jl_module_t *m,
     jl_value_t *v=NULL;
     jl_module_t *last_m = jl_current_module;
     jl_module_t *task_last_m = jl_current_task->current_module;
-    size_t i, nl = jl_svec_len(local_syms);
+    size_t i, nl = jl_svec_len(local_vals);
     jl_value_t **locals = (jl_value_t**)alloca(sizeof(jl_value_t*) * 2 * nl);
     for (i = 0; i < nl; i++) {
         locals[2 * i] = jl_svecref(local_syms, i);
